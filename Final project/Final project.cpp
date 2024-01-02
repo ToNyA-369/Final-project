@@ -141,11 +141,7 @@ void Asking(void)
 	char btn;
 	while (btn = getch()) {
 		if (btn == Quit) { system("cls");  exit(0); }
-		else {
-			// CursorJump(15, 7); printf("              ");
-			// CursorJump(15, 8); printf("              ");
-			return;
-		}
+		else return;
 	}
 }
 
