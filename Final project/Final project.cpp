@@ -1,12 +1,13 @@
 ﻿#include <stdio.h>
 #include <Windows.h>
-
+#include <time.h>
 void HideCursor(void);
 void CursorJump(int x, int y);
-
+bool Timer(int ms, int id);
 int main()
 {
-	HideCursor();
+
+
 }
 
 void HideCursor(void)
@@ -24,4 +25,15 @@ void CursorJump(int x, int y)
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleCursorPosition(handle, pos);
 }
+
+bool Timer(int ms, int id)
+{
+	static clock_t t[10];
+	if (clock() - t[id] > ms) {
+		t[id] = clock();
+		return true;
+	}
+	return false;
+}
+
 
